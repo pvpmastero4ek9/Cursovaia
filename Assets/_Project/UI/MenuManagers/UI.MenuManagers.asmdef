@@ -1,0 +1,17 @@
+{
+    "name": "UI.MenuManagers",
+    "rootNamespace": "UI.MenuManagers",
+    "references": [
+        "GUID:e0ff413034aaaac45bd4d491c0223d17",
+        "GUID:9e131cb74f4dd3c4aa1c82b754c3cf74"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
