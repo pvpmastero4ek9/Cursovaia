@@ -1,7 +1,9 @@
 {
-    "name": "Core.DataPlayers",
-    "rootNamespace": "Core.DataPlayers",
-    "references": [],
+    "name": "Core.Players",
+    "rootNamespace": "Core.Players",
+    "references": [
+        "GUID:30817c1a0e6d646d99c048fc403f5979"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

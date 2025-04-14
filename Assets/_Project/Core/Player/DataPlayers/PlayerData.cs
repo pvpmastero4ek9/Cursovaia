@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.DataPlayers
+namespace Core.Players
 {
     public class PlayerData : MonoBehaviour
     {

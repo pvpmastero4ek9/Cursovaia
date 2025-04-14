@@ -192,7 +192,7 @@ MonoBehaviour:
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 0}
+  playerPrefab: {fileID: 4525599082444799633, guid: d2727bae6959efc44aa3f8e55fed864b, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs: []
@@ -948,7 +948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &920917270
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1445,6 +1445,14 @@ PrefabInstance:
     - target: {fileID: 898394142697183956, guid: 73d43b62bdf3bad40a6af6d6b651da5a, type: 3}
       propertyPath: m_Name
       value: Text (TMP)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5155178724022210824, guid: 73d43b62bdf3bad40a6af6d6b651da5a, type: 3}
+      propertyPath: _localizationString.m_TableEntryReference.m_KeyId
+      value: 365092634624
+      objectReference: {fileID: 0}
+    - target: {fileID: 5155178724022210824, guid: 73d43b62bdf3bad40a6af6d6b651da5a, type: 3}
+      propertyPath: _localizationString.m_TableReference.m_TableCollectionName
+      value: GUID:dc843ea3b58cd944094cbedfe329ffae
       objectReference: {fileID: 0}
     - target: {fileID: 7481978005779537887, guid: 73d43b62bdf3bad40a6af6d6b651da5a, type: 3}
       propertyPath: m_Pivot.x
@@ -2277,6 +2285,14 @@ PrefabInstance:
     - target: {fileID: 898394142697183956, guid: 73d43b62bdf3bad40a6af6d6b651da5a, type: 3}
       propertyPath: m_Name
       value: Text (TMP)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5155178724022210824, guid: 73d43b62bdf3bad40a6af6d6b651da5a, type: 3}
+      propertyPath: _localizationString.m_TableEntryReference.m_KeyId
+      value: 6831964160
+      objectReference: {fileID: 0}
+    - target: {fileID: 5155178724022210824, guid: 73d43b62bdf3bad40a6af6d6b651da5a, type: 3}
+      propertyPath: _localizationString.m_TableReference.m_TableCollectionName
+      value: GUID:dc843ea3b58cd944094cbedfe329ffae
       objectReference: {fileID: 0}
     - target: {fileID: 7481978005779537887, guid: 73d43b62bdf3bad40a6af6d6b651da5a, type: 3}
       propertyPath: m_Pivot.x
