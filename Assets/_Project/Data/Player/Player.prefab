@@ -278,6 +278,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  IsMove: 0
   _rb: {fileID: 5073720332246502908}
   _speed: 5
 --- !u!114 &4187585173332208243
@@ -370,4 +371,5 @@ MonoBehaviour:
     m_Bits: 8
   _attackRange: 0.57
   _entityForDamage: {fileID: 5741187194530724855}
+  _entityMovement: {fileID: 8444414973623978104}
   _anim: {fileID: 8042866470684811849}

@@ -1,18 +1,17 @@
 using UnityEngine;
 using Mirror;
+using Core.Entitys;
 
 namespace Core.Players
 {
-    public class PlayerMovement : NetworkBehaviour
+    public class PlayerMovement : EntityMovement
     {
-        [SerializeField] private Rigidbody2D _rb;
-        [SerializeField] private float _speed;
-        private void FixedUpdate() 
+        protected override void Move()
         {
             if (!isLocalPlayer) return;
             
             Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            _rb.MovePosition(_rb.position + input * _speed / 100);
+            Rb.MovePosition(Rb.position + input * Speed / 100);
         }
     }
 }
