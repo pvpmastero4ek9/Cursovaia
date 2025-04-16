@@ -11,7 +11,7 @@ namespace Core.Entitys
         public Rigidbody2D Rb => _rb;
         public float Speed => _speed;
 
-        protected void FixedUpdate() 
+        protected virtual void FixedUpdate() 
         {
             if (!IsMove) return;
             

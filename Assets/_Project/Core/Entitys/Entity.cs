@@ -1,8 +1,9 @@
 using UnityEngine;
+using Mirror;
 
 namespace Core.Entitys
 {
-    public class Entity : MonoBehaviour
+    public class Entity : NetworkBehaviour
     {
         public float MaxHealth { get; private set; } = 100f;
         public float CurrentHealth { get; private set; }
