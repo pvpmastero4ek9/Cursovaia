@@ -1,6 +1,7 @@
 using UnityEngine;
 using MySql.Data.MySqlClient; 
 using System;
+using System.Data;
 
 namespace MySQLM
 {
@@ -53,31 +54,32 @@ namespace MySQLM
     }
 
     // Метод для выполнения SELECT-запросов
-    public void ExecuteQuery(string query)
+    public DataTable ExecuteQuery(string query)
     {
-        if (connection == null || connection.State != System.Data.ConnectionState.Open)
-        {
-            Debug.LogError("Подключение не установлено.");
-            return;
-        }
+            DataTable dataTable = new DataTable();
 
-        try
-        {
-            MySqlCommand command = new MySqlCommand(query, connection);
-            MySqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
+            if (connection == null || connection.State != ConnectionState.Open)
             {
-                // Пример: читаем столбцы по индексу
-                Debug.Log($"ID: {reader[0]}, Name: {reader[1]}, Score: {reader[2]}");
+                Debug.LogError("Подключение не установлено.");
+                return dataTable;
             }
 
-            reader.Close();
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError("Ошибка выполнения запроса: " + ex.Message);
-        }
+            try
+            {
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Ошибка выполнения запроса: " + ex.Message);
+            }
+
+            return dataTable;
     }
 
     // Метод для закрытия подключения

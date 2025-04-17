@@ -30,6 +30,24 @@ MonoBehaviour:
     m_Localized: Play
     m_Metadata:
       m_Items: []
+  - m_Id: 2904447235096576
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2904492374196224
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2904784482304000
+    m_Localized: There is no such account, should I create a new one? When you click
+      "Yes", the account will be created with the password that you entered before.
+      Confirm?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2911680656277504
+    m_Localized: Incorrect password!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

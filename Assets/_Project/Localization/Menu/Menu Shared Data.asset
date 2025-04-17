@@ -27,6 +27,22 @@ MonoBehaviour:
     m_Key: Play
     m_Metadata:
       m_Items: []
+  - m_Id: 2904447235096576
+    m_Key: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2904492374196224
+    m_Key: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2904784482304000
+    m_Key: Information
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2911680656277504
+    m_Key: Incorrect password!
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

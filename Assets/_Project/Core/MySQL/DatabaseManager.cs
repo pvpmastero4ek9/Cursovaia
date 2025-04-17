@@ -12,10 +12,10 @@ namespace MySQLM
             db.ConnectToDatabase();
 
             // Пример: Добавление записи
-            db.ExecuteNonQuery("INSERT INTO Players (Name, Score) VALUES ('Player1', 100);");
+            // db.ExecuteNonQuery("INSERT INTO players (username, level, experience) VALUES ('Player1', 2, 100);");
 
             // Пример: Получение данных
-            db.ExecuteQuery("SELECT * FROM Players;");
+            db.ExecuteQuery("SELECT * FROM players;");
 
             db.CloseConnection();
         }
