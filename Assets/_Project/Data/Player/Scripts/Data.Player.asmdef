@@ -1,11 +1,7 @@
 {
-    "name": "Core.Enemys",
-    "rootNamespace": "Core.Enemys",
-    "references": [
-        "GUID:2ffce3e48cabf0b4f824e1fbe289d4d3",
-        "GUID:30817c1a0e6d646d99c048fc403f5979",
-        "GUID:520608e3fc4c0a94586ec387acd3d595"
-    ],
+    "name": "Data.Player",
+    "rootNamespace": "Data.Player",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

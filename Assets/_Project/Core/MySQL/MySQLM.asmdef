@@ -1,7 +1,9 @@
 {
     "name": "MySQLM",
     "rootNamespace": "MySQLM",
-    "references": [],
+    "references": [
+        "GUID:e68dbc127bb7c4d4285b8d55fcc41bf1"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

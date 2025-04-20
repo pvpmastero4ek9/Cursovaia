@@ -1,10 +1,12 @@
 using UnityEngine;
 using System.Data;
+using Data.Player;
 
 namespace MySQLM
 {
     public class RegistrationPlayer : MonoBehaviour
     {
+        [SerializeField] private NickNameScriptableObject _nickNameScriptableObject;
         private MySQLConnector db;
 
         public delegate void PlayerLoaderDelegate(string Nickname);
@@ -14,6 +16,8 @@ namespace MySQLM
         public delegate void UnsuitablUserDelegate();
         public event UnsuitablUserDelegate UnsuitablUser;
 
+        bool IsNickNamePlayer = false;
+
         void Start()
         {
             db = new MySQLConnector();
@@ -22,14 +26,16 @@ namespace MySQLM
         public void LoadPlayer(string Nickname, string password)
         {
             db.ConnectToDatabase();
-
+        
             DataTable players = db.ExecuteQuery("SELECT * FROM players");
             foreach (DataRow row in players.Rows)
             {
                 if (row["username"].ToString() == Nickname)
                 {
+                    IsNickNamePlayer = true;
                     if (row["password"].ToString() == password)
                     {
+                        _nickNameScriptableObject.ChangeCurrentNickNamePlayer(Nickname);
                         PlayerLoader?.Invoke(Nickname);
                     }
                     else
@@ -39,12 +45,12 @@ namespace MySQLM
                     }
                     break;
                 }
-                else
-                {
-                    Debug.Log("Такого пользователя нету!");
-                    UnsuitablUser?.Invoke();
-                    break;
-                }
+            }
+
+            if (!IsNickNamePlayer)
+            {
+                Debug.Log("Такого пользователя нету!");
+                UnsuitablUser?.Invoke();
             }
 
             db.CloseConnection();
