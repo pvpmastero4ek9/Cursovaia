@@ -4,5 +4,8 @@ using Mirror;
 
 public class Enemys : Entity
 {
-    
+    protected override void Die()
+    {
+        Destroy(gameObject);
+    }
 }

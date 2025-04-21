@@ -29,7 +29,7 @@ namespace Core.Entitys
             }
         }
         
-        public virtual void Die()
+        protected virtual void Die()
         {
             // Логика смерти
         }

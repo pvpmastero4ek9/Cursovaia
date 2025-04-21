@@ -21,7 +21,6 @@ namespace Core.Entitys
             }
             set
             {
-                if (value < 0) return;
                 _timeBtwAttack = value;
             }
         }

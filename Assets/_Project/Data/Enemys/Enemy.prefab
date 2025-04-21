@@ -18,7 +18,8 @@ GameObject:
   - component: {fileID: 8808600501281258891}
   - component: {fileID: 4717093282644518643}
   - component: {fileID: 2712479300007642775}
-  - component: {fileID: 2580654175803205179}
+  - component: {fileID: 5008826463056320092}
+  - component: {fileID: 6162057096287400697}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Enemy
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -9158821032870448820, guid: d75a72413ccabdd41b8352dfdbb9a8a7, type: 3}
+  m_Sprite: {fileID: 5379806339976596592, guid: d75a72413ccabdd41b8352dfdbb9a8a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -284,7 +285,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.18, y: 0.2}
+    oldSize: {x: 0.17, y: 0.2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -309,8 +310,8 @@ MonoBehaviour:
   syncInterval: 0
   IsMove: 1
   _rb: {fileID: 8808600501281258891}
-  _speed: 3
---- !u!114 &2580654175803205179
+  _speed: 1.5
+--- !u!114 &5008826463056320092
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -319,18 +320,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 1033768701053084738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7bb3106c6660174ea32080fa141a9ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b248a71c2f02dd48b09f010e0efabea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startTimeBtwAttack: 0.5
   _attackPos: {fileID: 5655095677519137092}
   _maskEnemy:
     serializedVersion: 2
     m_Bits: 64
-  _attackRange: 0.15
   _entityForDamage: {fileID: 2493158839392802397}
-  _entityMovement: {fileID: 2712479300007642775}
-  _anim: {fileID: 4587198871342388841}
+  _timeBtwAttack: 0
+  <AttackRange>k__BackingField: 0.2
+  <StartTimeBtwAttack>k__BackingField: 0.6
+  <EntityMovement>k__BackingField: {fileID: 2712479300007642775}
+  <Anim>k__BackingField: {fileID: 4587198871342388841}
+  _distanceForAtack: 0.52
+--- !u!114 &6162057096287400697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033768701053084738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6444efc65b7a5db4687b30494d1f3331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 8808600501281258891}
+  _animator: {fileID: 4587198871342388841}
 --- !u!1 &5514894050384255763
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ namespace Core.Enemys
 {
     public class EnemyAtack : EntitysAtack
     {
+        [SerializeField] private float _distanceForAtack;
         private Transform _currentPlayerTransform;
         private Transform[] _playersTransform;
         private bool _isAttackQueued = false;
@@ -24,9 +25,8 @@ namespace Core.Enemys
             else
             {
                 TimeBtwAttack -= Time.deltaTime;
-                
                 _currentPlayerTransform = _playersTransform.OrderBy(x => Vector3.Distance(transform.position, x.position)).FirstOrDefault();
-                if (Vector3.Distance(transform.position, _currentPlayerTransform.position) <= AttackRange)
+                if (Vector3.Distance(transform.position, _currentPlayerTransform.position) <= _distanceForAtack)
                 {
                     _isAttackQueued = true;
                 }

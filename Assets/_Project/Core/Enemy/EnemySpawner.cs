@@ -7,29 +7,38 @@ namespace Core.Enemys
 {
     public class EnemySpawner : MonoBehaviour
     {
+        private const float LevelMultiplier = 0.3f;
+        private const int MaxHealthMultiplier = 10;
+        private const int DamageMultiplier = 2;
+
         [SerializeField] private Entity[] _enemyPrefabs;
         [SerializeField] private Transform[] _spawnPoints;
         [SerializeField] private float _baseSpawnRate = 5f;
 
-        private int playerLevel; // получай это значение от игрока
-        private float spawnTimer;
+        private int _playerLevel; // получай это значение от игрока
+        private float _spawnTimer;
 
-        void Update()
+        private void Start()
         {
-            spawnTimer -= Time.deltaTime;
+            _spawnTimer = _baseSpawnRate;
+        }
 
-            if (spawnTimer <= 0f)
+        private void Update()
+        {
+            _spawnTimer -= Time.deltaTime;
+
+            if (_spawnTimer <= 0f)
             {
                 GetPlayerLvl();
                 SpawnEnemy();
-                float scaledSpawnRate = Mathf.Clamp(_baseSpawnRate - playerLevel * 0.3f, 1f, _baseSpawnRate);
-                spawnTimer = scaledSpawnRate;
+                float scaledSpawnRate = Mathf.Clamp(_baseSpawnRate - _playerLevel * LevelMultiplier, 1f, _baseSpawnRate);
+                _spawnTimer = scaledSpawnRate;
             }
         }
 
-        void SpawnEnemy()
+        private void SpawnEnemy()
         {
-            int enemyIndex = Mathf.Min(playerLevel / 3, _enemyPrefabs.Length - 1); // сложнее враги с ростом уровня
+            int enemyIndex = Mathf.Min(_playerLevel / 3, _enemyPrefabs.Length - 1); // сложнее враги с ростом уровня
             Entity enemyToSpawn = _enemyPrefabs[enemyIndex];
 
             Transform spawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
@@ -38,10 +47,10 @@ namespace Core.Enemys
             ScaleEnemyStats(spawnedEnemy);
         }
 
-        void ScaleEnemyStats(Entity enemy)
+        private void ScaleEnemyStats(Entity enemy)
         {
-            int maxHealth = playerLevel * 10;
-            int damage = playerLevel * 2;
+            int maxHealth = _playerLevel * MaxHealthMultiplier;
+            int damage = _playerLevel * DamageMultiplier;
             enemy.UpdateData(maxHealth, maxHealth, damage);
         }
 
@@ -50,9 +59,9 @@ namespace Core.Enemys
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
             foreach (Player player in players.Select(x => x.GetComponent<Player>()).ToList())
             {
-                if (player.PlayerData.PlayerLvl > playerLevel)
+                if (player.PlayerData.PlayerLvl > _playerLevel)
                 {
-                    playerLevel = player.PlayerData.PlayerLvl;
+                    _playerLevel = player.PlayerData.PlayerLvl;
                 }
             }
         }

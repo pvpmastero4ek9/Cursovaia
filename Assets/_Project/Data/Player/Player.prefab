@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 4187585173332208243}
   - component: {fileID: 7134557339912954089}
   - component: {fileID: 5741187194530724855}
-  - component: {fileID: 6032256070699460907}
+  - component: {fileID: 2702499614840772151}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -356,7 +356,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   _nickNameScriptableObject: {fileID: 11400000, guid: ce72e2440c3803342a22b4f8acbc3b11, type: 2}
---- !u!114 &6032256070699460907
+--- !u!114 &2702499614840772151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -365,15 +365,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4525599082444799633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7bb3106c6660174ea32080fa141a9ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 380b77bc30e80204cb9c355aca53974c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startTimeBtwAttack: 0.5
   _attackPos: {fileID: 705762597273942743}
   _maskEnemy:
     serializedVersion: 2
     m_Bits: 8
-  _attackRange: 0.57
   _entityForDamage: {fileID: 5741187194530724855}
-  _entityMovement: {fileID: 8444414973623978104}
-  _anim: {fileID: 8042866470684811849}
+  _timeBtwAttack: 0
+  <AttackRange>k__BackingField: 0.6
+  <StartTimeBtwAttack>k__BackingField: 0.37
+  <EntityMovement>k__BackingField: {fileID: 8444414973623978104}
+  <Anim>k__BackingField: {fileID: 8042866470684811849}
