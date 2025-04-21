@@ -4,55 +4,42 @@ namespace Core.Entitys
 {
     public class EntitysAtack : MonoBehaviour
     {
-        [SerializeField] private float _startTimeBtwAttack;
         [SerializeField] private Transform _attackPos;
         [SerializeField] private LayerMask _maskEnemy;
-        [SerializeField] private float _attackRange;
         [SerializeField] private Entity _entityForDamage;
-        [SerializeField] private EntityMovement _entityMovement;
-        [SerializeField] private Animator _anim;
+        [SerializeField] float _timeBtwAttack;
 
-        private float _timeBtwAttack;
-        private bool _isAttackQueued = false;
-        
-        private void Update()
+        [field:SerializeField] public float AttackRange { get; private set; }
+        [field:SerializeField] public float StartTimeBtwAttack { get; private set; }
+        [field:SerializeField] public EntityMovement EntityMovement { get; private set; }
+        [field:SerializeField] public Animator Anim { get; private set; }
+        public float TimeBtwAttack 
         {
-            if (_timeBtwAttack <= 0 && _isAttackQueued)
+            get 
             {
-                if (Input.GetMouseButton(0))
-                {
-                    _entityMovement.IsMove = false;
-                    _anim.SetTrigger("IsAtack");
-                    _isAttackQueued = false; // сброс очереди
-                    _timeBtwAttack = _startTimeBtwAttack;
-                }
+                return _timeBtwAttack;
             }
-            else
+            set
             {
-                _timeBtwAttack -= Time.deltaTime;
-
-                // Позволяет "запомнить" атаку, если кликнули в период восстановления
-                if (Input.GetMouseButtonDown(0))
-                {
-                    _isAttackQueued = true;
-                }
+                if (value < 0) return;
+                _timeBtwAttack = value;
             }
         }
 
         public void OnAttack()
         {
-            Collider2D[] enemies = Physics2D.OverlapCircleAll(_attackPos.position, _attackRange, _maskEnemy);
+            Collider2D[] enemies = Physics2D.OverlapCircleAll(_attackPos.position, AttackRange, _maskEnemy);
             foreach(Collider2D elem in enemies)
             {
                 elem.GetComponent<Entity>().TakeDamage(_entityForDamage.Damage);
             }
-            _entityMovement.IsMove = true;
+            EntityMovement.IsMove = true;
         }
 
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(_attackPos.position, _attackRange);
+            Gizmos.DrawWireSphere(_attackPos.position, AttackRange);
         }
     }
 }
