@@ -7,7 +7,7 @@ public class EnemyMovement : EntityMovement
     private Transform target;
     private Rigidbody2D rb;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         // Поиск игрока при старте
@@ -29,7 +29,7 @@ public class EnemyMovement : EntityMovement
         }
     }
 
-    Transform FindNearestPlayer()
+    private Transform FindNearestPlayer()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         Transform nearestPlayer = null;
