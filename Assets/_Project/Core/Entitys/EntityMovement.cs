@@ -12,9 +12,7 @@ namespace Core.Entitys
         public float Speed => _speed;
 
         protected virtual void FixedUpdate() 
-        {
-            if (!IsMove) return;
-            
+        {   
             Move();
         }
 

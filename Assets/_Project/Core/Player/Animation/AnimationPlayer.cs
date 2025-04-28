@@ -9,36 +9,26 @@ namespace Core.Players
         private void FixedUpdate()
         {
             Run();
-            Flip();
         }
 
         private void Run()
         {
-            float MoveX = Input.GetAxisRaw("Horizontal");
-            float MoveY = Input.GetAxisRaw("Vertical");
+            float MoveX = Input.GetAxis("Horizontal");
+            float MoveY = Input.GetAxis("Vertical");
             
-            if (Mathf.Abs(MoveX) > 0)
-            {
-                _animator.SetFloat("Move", Mathf.Abs(MoveX));
-            }
-            else if (Mathf.Abs(MoveY) > 0)
-            {
-                _animator.SetFloat("Move", Mathf.Abs(MoveY));
-            }
-            else
-            {
-                _animator.SetFloat("Move", 0);
-            }
+            _animator.SetFloat("MoveX", MoveX);
+            _animator.SetFloat("MoveY", MoveY);
+
+            Flip(MoveX);
         }
 
-        private void Flip()
+        private void Flip(float moveX)
         {
-            if (Input.GetAxis("Horizontal") > 0)
+            if (moveX >= 0)
             {
                 transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
-
-            if (Input.GetAxis("Horizontal") < 0)
+            else if (moveX < 0)
             {
                 transform.localRotation = Quaternion.Euler(0, 180, 0);
             }
