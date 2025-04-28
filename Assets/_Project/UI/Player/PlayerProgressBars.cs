@@ -37,29 +37,32 @@ namespace UI.Players
         }
 
         private void ChangeValueExpirience()
-        {
-            _progressBar.fillAmount = (float)_playerData.PlayerExpirience / _playerData.GetExperienceForLevel;
-            
+        {   
             if (_playerState == PlayerState.Health)
             {
                 HealthChange();
             }
             else if (_playerState == PlayerState.Expirience)
             {
-                LvlChange();
+                ExpirienceChange();
             }
         }
 
         private void HealthChange()
         {
-            _text_one.text = $"{_player.CurrentHealth}/{_player.MaxHealth}";
-            _text_two.text = $"{_player.CurrentHealth}/{_player.MaxHealth}";
+            VisualChange(_player.CurrentHealth, _player.MaxHealth);
         }
 
-        private void LvlChange()
+        private void ExpirienceChange()
         {
-            _text_one.text = $"{_playerData.PlayerExpirience}/{_playerData.GetExperienceForLevel}";
-            _text_two.text = $"{_playerData.PlayerExpirience}/{_playerData.GetExperienceForLevel}";
+            VisualChange((float)_playerData.PlayerExpirience, _playerData.GetExperienceForLevel);
+        }
+
+        private void VisualChange(float currentValue, float maxValue)
+        {
+            _progressBar.fillAmount = currentValue / maxValue;
+            _text_one.text = $"{currentValue}/{maxValue}";
+            _text_two.text = $"{currentValue}/{maxValue}";
         }
 
         private enum PlayerState

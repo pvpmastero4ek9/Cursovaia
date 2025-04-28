@@ -13,6 +13,7 @@ namespace Core.Players
                 if (Input.GetMouseButton(0))
                 {
                     EntityMovement.IsMove = false;
+
                     Anim.SetTrigger("IsAtack");
                     _isAttackQueued = false; // сброс очереди
                     TimeBtwAttack = StartTimeBtwAttack;

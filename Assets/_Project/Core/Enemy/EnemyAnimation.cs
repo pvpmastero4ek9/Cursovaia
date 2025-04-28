@@ -15,8 +15,10 @@ namespace Core.Enemys
 
         private void Run()
         {
-            float Move = _rb.linearVelocity.magnitude;
-            _animator.SetFloat("Move", Move);
+            Vector3 localVelocity = transform.InverseTransformDirection(_rb.linearVelocity);
+            Vector3 direction = localVelocity.normalized;
+            _animator.SetFloat("MoveX", direction.x);
+            _animator.SetFloat("MoveY", direction.y);
         }
 
         private void Flip()
