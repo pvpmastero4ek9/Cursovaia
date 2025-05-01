@@ -4,27 +4,38 @@ using Core.Entitys;
 
 public class EnemyMovement : EntityMovement
 {
-    [SerializeField] private NavMeshAgent _enemyAgent;
-    private Transform target;
+    [field: SerializeField] public NavMeshAgent EnemyAgent { get; private set; }
+    private Transform _target;
+    public Transform Target
+    {
+        get
+        {
+            return _target;
+        }
+        set
+        {
+            _target = value;
+        }
+    }
 
     private void Start()
     {
-        _enemyAgent.updateRotation = false;
-		_enemyAgent.updateUpAxis = false;
+        EnemyAgent.updateRotation = false;
+		EnemyAgent.updateUpAxis = false;
         // Поиск игрока при старте
-        target = FindNearestPlayer();
+        _target = FindNearestPlayer();
     }
 
     protected override void Move()
     {
-        if (target != null)
+        if (_target != null)
         {
-            _enemyAgent.SetDestination(target.position);
+            EnemyAgent.SetDestination(_target.position);
         }
         else
         {
             // Если игрок исчез (например, умер), ищем нового
-            target = FindNearestPlayer();
+            _target = FindNearestPlayer();
         }
     }
 

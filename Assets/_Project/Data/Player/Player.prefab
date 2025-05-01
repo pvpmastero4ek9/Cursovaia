@@ -278,9 +278,8 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  IsMove: 0
   _rb: {fileID: 5073720332246502908}
-  _speed: 5
+  _currentSpeed: 5
 --- !u!114 &4187585173332208243
 MonoBehaviour:
   m_ObjectHideFlags: 0

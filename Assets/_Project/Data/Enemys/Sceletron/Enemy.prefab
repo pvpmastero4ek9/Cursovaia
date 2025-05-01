@@ -310,10 +310,9 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  IsMove: 1
   _rb: {fileID: 8808600501281258891}
-  _speed: 1.5
-  _enemyAgent: {fileID: 2380593631790481113}
+  _currentSpeed: 0
+  <EnemyAgent>k__BackingField: {fileID: 2380593631790481113}
 --- !u!114 &5008826463056320092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,11 +331,12 @@ MonoBehaviour:
     m_Bits: 64
   _entityForDamage: {fileID: 2493158839392802397}
   _timeBtwAttack: 0
-  <AttackRange>k__BackingField: 0.2
+  <AttackRange>k__BackingField: 0.74
   <StartTimeBtwAttack>k__BackingField: 0.6
   <EntityMovement>k__BackingField: {fileID: 2712479300007642775}
   <Anim>k__BackingField: {fileID: 4587198871342388841}
-  _distanceForAtack: 0.6
+  _distanceForAtack: 1
+  _enemyMovement: {fileID: 2712479300007642775}
 --- !u!114 &6162057096287400697
 MonoBehaviour:
   m_ObjectHideFlags: 0
