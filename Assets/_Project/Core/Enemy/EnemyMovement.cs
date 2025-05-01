@@ -1,15 +1,16 @@
 using UnityEngine;
-using Mirror;
+using UnityEngine.AI;
 using Core.Entitys;
 
 public class EnemyMovement : EntityMovement
 {
+    [SerializeField] private NavMeshAgent _enemyAgent;
     private Transform target;
-    private Rigidbody2D rb;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _enemyAgent.updateRotation = false;
+		_enemyAgent.updateUpAxis = false;
         // Поиск игрока при старте
         target = FindNearestPlayer();
     }
@@ -18,9 +19,7 @@ public class EnemyMovement : EntityMovement
     {
         if (target != null)
         {
-            // Движение к игроку
-            Vector2 direction = (target.position - transform.position).normalized;
-            rb.linearVelocity = direction * Speed;
+            _enemyAgent.SetDestination(target.position);
         }
         else
         {

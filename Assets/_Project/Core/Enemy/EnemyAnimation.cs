@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Core.Enemys
 {
@@ -6,6 +7,7 @@ namespace Core.Enemys
     {
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private Animator _animator;
+        [SerializeField] private NavMeshAgent _navMeshAgent;
 
         private void FixedUpdate()
         {
@@ -15,7 +17,7 @@ namespace Core.Enemys
 
         private void Run()
         {
-            Vector3 localVelocity = transform.InverseTransformDirection(_rb.linearVelocity);
+            Vector3 localVelocity = transform.InverseTransformDirection(_navMeshAgent.velocity);
             Vector3 direction = localVelocity.normalized;
             _animator.SetFloat("MoveX", direction.x);
             _animator.SetFloat("MoveY", direction.y);
