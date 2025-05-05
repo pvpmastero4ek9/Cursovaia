@@ -4,6 +4,7 @@
     "com.h8man.2d.navmeshplus": "https://github.com/h8man/NavMeshPlus.git",
     "com.nobi.roundedcorners": "https://github.com/kirevdokimov/Unity-UI-Rounded-Corners.git",
     "com.singularitygroup.hotreload": "git+https://gitlab.hotreload.net/root/hot-reload-releases.git#1.13.6",
+    "com.unity.ai.navigation": "2.0.7",
     "com.unity.collab-proxy": "2.5.2",
     "com.unity.feature.2d": "2.0.1",
     "com.unity.ide.rider": "3.0.31",

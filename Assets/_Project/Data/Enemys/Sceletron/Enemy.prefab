@@ -312,7 +312,7 @@ MonoBehaviour:
   syncInterval: 0
   _rb: {fileID: 8808600501281258891}
   _currentSpeed: 0
-  <EnemyAgent>k__BackingField: {fileID: 2380593631790481113}
+  _enemyAgent: {fileID: 2380593631790481113}
 --- !u!114 &5008826463056320092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,7 +331,7 @@ MonoBehaviour:
     m_Bits: 64
   _entityForDamage: {fileID: 2493158839392802397}
   _timeBtwAttack: 0
-  <AttackRange>k__BackingField: 0.74
+  <AttackRange>k__BackingField: 1.73
   <StartTimeBtwAttack>k__BackingField: 0.6
   <EntityMovement>k__BackingField: {fileID: 2712479300007642775}
   <Anim>k__BackingField: {fileID: 4587198871342388841}
@@ -366,7 +366,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -399,7 +399,7 @@ Transform:
   m_GameObject: {fileID: 5514894050384255763}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0479, y: -0.0252, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

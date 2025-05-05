@@ -1,11 +1,16 @@
 using UnityEngine;
 using UnityEngine.AI;
 using Core.Entitys;
+using System.Collections;
 
 public class EnemyMovement : EntityMovement
 {
-    [field: SerializeField] public NavMeshAgent EnemyAgent { get; private set; }
+    private const float TimePauseJerk = 0.3f;
+    private const float DashSpeed = 30f;
+    [SerializeField] private NavMeshAgent _enemyAgent;
     private Transform _target;
+    private DefaultSpeed _defaultSpeed = new();
+    public bool _isJerk { get; private set; } = false;
     public Transform Target
     {
         get
@@ -20,9 +25,10 @@ public class EnemyMovement : EntityMovement
 
     private void Start()
     {
-        EnemyAgent.updateRotation = false;
-		EnemyAgent.updateUpAxis = false;
+        _enemyAgent.updateRotation = false;
+		_enemyAgent.updateUpAxis = false;
         // Поиск игрока при старте
+        _defaultSpeed.Speed = _enemyAgent.speed;
         _target = FindNearestPlayer();
     }
 
@@ -30,7 +36,7 @@ public class EnemyMovement : EntityMovement
     {
         if (_target != null)
         {
-            EnemyAgent.SetDestination(_target.position);
+            if (!_isJerk) _enemyAgent.SetDestination(_target.position);
         }
         else
         {
@@ -56,5 +62,31 @@ public class EnemyMovement : EntityMovement
         }
 
         return nearestPlayer;
+    }
+
+    public IEnumerator Jerk()
+    {
+        Vector3 targetPos = _target.position; 
+        _isJerk = true;
+        _enemyAgent.isStopped = true;
+
+        yield return new WaitForSeconds(TimePauseJerk);
+
+        _enemyAgent.speed = DashSpeed;
+        _enemyAgent.isStopped = false;
+        _enemyAgent.SetDestination(targetPos);
+        
+        while (Vector3.Distance(transform.position, targetPos) > _enemyAgent.stoppingDistance + 0.6f)
+        {
+            yield return null;
+        }
+
+        _enemyAgent.speed = _defaultSpeed.Speed;
+        _isJerk = false;
+    }
+
+    private struct DefaultSpeed
+    {
+        public float Speed;
     }
 }
