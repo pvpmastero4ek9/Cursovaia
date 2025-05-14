@@ -279,11 +279,11 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.00049719214, y: 0.017838143}
+  m_Offset: {x: -0.00049719214, y: -0.06047157}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -293,7 +293,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.19577399, y: 0.30900306}
+  m_Size: {x: 0.19577399, y: 0.15238363}
   m_EdgeRadius: 0
 --- !u!114 &2712479300007642775
 MonoBehaviour:
@@ -307,11 +307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2da22881f3b31e4fba304f268e68ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  _rb: {fileID: 8808600501281258891}
-  _currentSpeed: 0
+  _pushRange: 1.73
+  _startTimeBtwPush: 1
   _enemyAgent: {fileID: 2380593631790481113}
 --- !u!114 &5008826463056320092
 MonoBehaviour:
@@ -325,18 +322,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b248a71c2f02dd48b09f010e0efabea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackPos: {fileID: 5655095677519137092}
-  _maskEnemy:
-    serializedVersion: 2
+  <MaskEnemy>k__BackingField:
+  - serializedVersion: 2
     m_Bits: 64
+  - serializedVersion: 2
+    m_Bits: 256
+  _attackPos: {fileID: 5655095677519137092}
   _entityForDamage: {fileID: 2493158839392802397}
   _timeBtwAttack: 0
-  <AttackRange>k__BackingField: 1.73
+  <AttackRange>k__BackingField: 0.49
   <StartTimeBtwAttack>k__BackingField: 0.6
-  <EntityMovement>k__BackingField: {fileID: 2712479300007642775}
   <Anim>k__BackingField: {fileID: 4587198871342388841}
-  _distanceForAtack: 1
-  _enemyMovement: {fileID: 2712479300007642775}
 --- !u!114 &6162057096287400697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,9 +345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6444efc65b7a5db4687b30494d1f3331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rb: {fileID: 8808600501281258891}
   _animator: {fileID: 4587198871342388841}
   _navMeshAgent: {fileID: 2380593631790481113}
+  _spriteRenderer: {fileID: 8850146991824220000}
 --- !u!195 &2380593631790481113
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -364,7 +360,7 @@ NavMeshAgent:
   m_Radius: 0.125
   m_Speed: 1.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 49
   m_AngularSpeed: 120
   m_StoppingDistance: 0.1
   m_AutoTraverseOffMeshLink: 1

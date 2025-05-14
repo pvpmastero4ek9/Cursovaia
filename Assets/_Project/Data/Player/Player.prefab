@@ -279,7 +279,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   _rb: {fileID: 5073720332246502908}
-  _currentSpeed: 5
+  _speed: 5
 --- !u!114 &4187585173332208243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,7 +327,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.00014159083, y: -0.054686084}
+  m_Offset: {x: -0.00014159083, y: -0.10576166}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -337,7 +337,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.33148825, y: 0.3317245}
+  m_Size: {x: 0.33148825, y: 0.21391943}
   m_EdgeRadius: 0
 --- !u!114 &5741187194530724855
 MonoBehaviour:
@@ -367,13 +367,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 380b77bc30e80204cb9c355aca53974c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackPos: {fileID: 705762597273942743}
-  _maskEnemy:
-    serializedVersion: 2
+  <MaskEnemy>k__BackingField:
+  - serializedVersion: 2
     m_Bits: 8
+  _attackPos: {fileID: 705762597273942743}
   _entityForDamage: {fileID: 5741187194530724855}
   _timeBtwAttack: 0
   <AttackRange>k__BackingField: 0.6
   <StartTimeBtwAttack>k__BackingField: 0.37
-  <EntityMovement>k__BackingField: {fileID: 8444414973623978104}
   <Anim>k__BackingField: {fileID: 8042866470684811849}

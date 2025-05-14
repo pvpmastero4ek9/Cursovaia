@@ -25,14 +25,30 @@ namespace UI.Players
         {
             _localPlayer.FoundPlayer -= GetPlayer;
             if (_playerData == null) return;
-            _playerData.ChangedPlayerData -= ChangeValueExpirience;
+
+            if (_playerState == PlayerState.Health)
+            {
+                _player.ChangedHealth -= ChangeValueExpirience;
+            }
+            else if (_playerState == PlayerState.Expirience)
+            {
+                _player.PlayerData.ChangedPlayerData -= ChangeValueExpirience;
+            }
         }
 
         private void GetPlayer(Player localPlayer)
         {
             _player = localPlayer;
 
-            _player.PlayerData.ChangedPlayerData += ChangeValueExpirience;
+            if (_playerState == PlayerState.Health)
+            {
+                _player.ChangedHealth += ChangeValueExpirience;
+            }
+            else if (_playerState == PlayerState.Expirience)
+            {
+                _player.PlayerData.ChangedPlayerData += ChangeValueExpirience;
+            }
+
             ChangeValueExpirience();
         }
 

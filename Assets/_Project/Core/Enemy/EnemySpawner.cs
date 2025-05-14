@@ -25,14 +25,16 @@ namespace Core.Enemys
 
         private void Update()
         {
+            int countMoobs = 0;
             _spawnTimer -= Time.deltaTime;
 
-            if (_spawnTimer <= 0f)
+            if (_spawnTimer <= 0f && countMoobs < 2)
             {
                 GetPlayerLvl();
                 SpawnEnemy();
                 float scaledSpawnRate = Mathf.Clamp(_baseSpawnRate - _playerLevel * LevelMultiplier, 1f, _baseSpawnRate);
                 _spawnTimer = scaledSpawnRate;
+                countMoobs++;
             }
         }
 

@@ -8,47 +8,45 @@ namespace Core.Enemys
 {
     public class EnemyAtack : EntitysAtack
     {
-        [SerializeField] private EnemyMovement _enemyMovement;
-
         private Transform _currentPlayerTransform;
         private Transform[] _playersTransform;
-        private bool _isAttackQueued = false;
 
         private void Start()
         {
             _playersTransform = GameObject.FindGameObjectsWithTag("Player").Select(x => x.transform).ToArray();
+            _currentPlayerTransform = _playersTransform.OrderBy(x => Vector3.Distance(transform.position, x.position)).FirstOrDefault();
         }
 
         private void Update()
         {
-            if (!_enemyMovement._isJerk)
+            TimeBtwAttack -= Time.deltaTime;
+        }
+
+        private void CheckOnAttack()
+        {
+            if (TimeBtwAttack <= 0)
             {
-                if (TimeBtwAttack <= 0 && _isAttackQueued)
-                {
-                    Attack();
-                }
-                else
-                {
-                    TimeBtwAttack -= Time.deltaTime;
-                    _currentPlayerTransform = _playersTransform.OrderBy(x => Vector3.Distance(transform.position, x.position)).FirstOrDefault();
-                    if (Vector3.Distance(transform.position, _currentPlayerTransform.position) <= AttackRange)
-                    {
-                        _isAttackQueued = true;
-                    }
-                    else
-                    {
-                        _isAttackQueued = false;
-                    }
-                }
+                MakeAttack();
             }
         }
 
-        private void Attack()
+        private void MakeAttack()
         {
             // Anim.SetTrigger("IsAtack");
-            StartCoroutine(_enemyMovement.Jerk());
-            
+            OnAttack();
             TimeBtwAttack = StartTimeBtwAttack;
+        }
+
+        void OnTriggerEnter2D(Collider2D collision)
+        {
+            foreach(LayerMask layerMask in MaskEnemy)
+            {
+                if (LayerMask.GetMask(LayerMask.LayerToName(collision.gameObject.layer)) == layerMask)
+                {
+                    CheckOnAttack();
+                    break;
+                }
+            }
         }
     }
 }

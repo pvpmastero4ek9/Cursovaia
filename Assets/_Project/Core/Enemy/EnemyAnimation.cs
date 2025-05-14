@@ -5,34 +5,36 @@ namespace Core.Enemys
 {
     public class EnemyAnimation : MonoBehaviour
     {
-        [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private Animator _animator;
         [SerializeField] private NavMeshAgent _navMeshAgent;
+        [SerializeField] private SpriteRenderer _spriteRenderer;
+        private Vector3 _localVelocity;
+        private Vector3 _direction;
 
         private void FixedUpdate()
         {
+            _localVelocity = transform.InverseTransformDirection(_navMeshAgent.velocity);
+            _direction = _localVelocity.normalized;
+
             Run();
             Flip();
         }
 
         private void Run()
         {
-            Vector3 localVelocity = transform.InverseTransformDirection(_navMeshAgent.velocity);
-            Vector3 direction = localVelocity.normalized;
-            _animator.SetFloat("MoveX", direction.x);
-            _animator.SetFloat("MoveY", direction.y);
+            _animator.SetFloat("MoveX", _direction.x);
+            _animator.SetFloat("MoveY", _direction.y);
         }
 
         private void Flip()
         {
-            if (_rb.linearVelocity.x > 0.01f)
+            if (_direction.x > 0.01f)
             {
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
-            }
-
-            if (_rb.linearVelocity.x < 0.01f)
+                _spriteRenderer.flipX = false;
+            } 
+            else if (_direction.x < 0.01f)
             {
-                transform.localRotation = Quaternion.Euler(0, 180, 0);
+                _spriteRenderer.flipX = true;
             }
         }
     }

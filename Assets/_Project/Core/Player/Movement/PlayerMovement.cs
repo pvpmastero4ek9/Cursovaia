@@ -4,14 +4,24 @@ using Core.Entitys;
 
 namespace Core.Players
 {
-    public class PlayerMovement : EntityMovement
+    public class PlayerMovement : NetworkBehaviour
     {
-        protected override void Move()
+        private const float SpeedReduction = 100f;
+        [SerializeField] private Rigidbody2D _rb;
+        [SerializeField] private float _speed = 5f;
+
+        private void FixedUpdate()
+        {
+            Move();
+        }
+
+        private void Move()
         {
             if (!isLocalPlayer) return;
             
             Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            Rb.MovePosition(Rb.position + input * Speed / 100);
+            _rb.MovePosition(_rb.position + input * _speed / SpeedReduction);
         }
+        
     }
 }

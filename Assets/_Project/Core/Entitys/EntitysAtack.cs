@@ -1,17 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Core.Entitys
 {
     public class EntitysAtack : MonoBehaviour
     {
-        [SerializeField] private Transform _attackPos;
-        [SerializeField] private LayerMask _maskEnemy;
-        [SerializeField] private Entity _entityForDamage;
-        [SerializeField] float _timeBtwAttack;
+        [field: SerializeField] public List<LayerMask> MaskEnemy { get; private set; } 
+        [field: SerializeField] private Transform _attackPos;
+        [field: SerializeField] private Entity _entityForDamage;
+        [field: SerializeField] float _timeBtwAttack;
 
         [field:SerializeField] public float AttackRange { get; private set; }
         [field:SerializeField] public float StartTimeBtwAttack { get; private set; }
-        [field:SerializeField] public EntityMovement EntityMovement { get; private set; }
         [field:SerializeField] public Animator Anim { get; private set; }
         public float TimeBtwAttack 
         {
@@ -27,12 +28,16 @@ namespace Core.Entitys
 
         public void OnAttack()
         {
-            Collider2D[] enemies = Physics2D.OverlapCircleAll(_attackPos.position, AttackRange, _maskEnemy);
+            List<Collider2D> enemies = new();
+            foreach(LayerMask layerMask in MaskEnemy)
+            {
+                enemies.AddRange(Physics2D.OverlapCircleAll(_attackPos.position, AttackRange, layerMask).ToList()); 
+            }
+            
             foreach(Collider2D elem in enemies)
             {
                 elem.GetComponent<Entity>().TakeDamage(_entityForDamage.Damage);
             }
-            EntityMovement.IsMove = true;
         }
 
         private void OnDrawGizmosSelected()

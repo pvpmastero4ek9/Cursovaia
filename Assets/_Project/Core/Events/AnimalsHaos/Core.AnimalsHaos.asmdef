@@ -1,0 +1,18 @@
+{
+    "name": "Core.AnimalsHaos",
+    "rootNamespace": "Core.AnimalsHaos",
+    "references": [
+        "GUID:ff88554b271ff124a94f39088a03e15d",
+        "GUID:520608e3fc4c0a94586ec387acd3d595",
+        "GUID:c5127c6a3c2ec6c4b8ca9e86e0796dc0"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
