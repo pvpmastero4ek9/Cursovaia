@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 601919512026748025}
   - component: {fileID: -3163153123788535994}
   - component: {fileID: -7260365168254811511}
+  - component: {fileID: -2452943614662819687}
   m_Layer: 8
   m_Name: Chicken
   m_TagString: animals
@@ -326,3 +327,18 @@ MonoBehaviour:
   _animator: {fileID: 4587198871342388841}
   _navMeshAgent: {fileID: 601919512026748025}
   _spriteRenderer: {fileID: 8850146991824220000}
+--- !u!114 &-2452943614662819687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033768701053084738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9297e6abd468b1e40882279100c99f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0

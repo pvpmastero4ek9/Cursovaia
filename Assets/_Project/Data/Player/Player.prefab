@@ -370,6 +370,8 @@ MonoBehaviour:
   <MaskEnemy>k__BackingField:
   - serializedVersion: 2
     m_Bits: 8
+  - serializedVersion: 2
+    m_Bits: 256
   _attackPos: {fileID: 705762597273942743}
   _entityForDamage: {fileID: 5741187194530724855}
   _timeBtwAttack: 0

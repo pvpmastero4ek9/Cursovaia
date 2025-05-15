@@ -8,15 +8,6 @@ namespace Core.Enemys
 {
     public class EnemyAtack : EntitysAtack
     {
-        private Transform _currentPlayerTransform;
-        private Transform[] _playersTransform;
-
-        private void Start()
-        {
-            _playersTransform = GameObject.FindGameObjectsWithTag("Player").Select(x => x.transform).ToArray();
-            _currentPlayerTransform = _playersTransform.OrderBy(x => Vector3.Distance(transform.position, x.position)).FirstOrDefault();
-        }
-
         private void Update()
         {
             TimeBtwAttack -= Time.deltaTime;

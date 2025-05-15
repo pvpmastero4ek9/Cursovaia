@@ -310,6 +310,11 @@ MonoBehaviour:
   _pushRange: 1.73
   _startTimeBtwPush: 1
   _enemyAgent: {fileID: 2380593631790481113}
+  _maskEnemy:
+  - serializedVersion: 2
+    m_Bits: 64
+  - serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &5008826463056320092
 MonoBehaviour:
   m_ObjectHideFlags: 0

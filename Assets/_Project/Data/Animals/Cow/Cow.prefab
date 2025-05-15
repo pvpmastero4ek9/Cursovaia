@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 3005804351024969615}
   - component: {fileID: -7404911204231748903}
   - component: {fileID: 4209528800428592248}
+  - component: {fileID: -320687370874646614}
   m_Layer: 8
   m_Name: Cow
   m_TagString: animals
@@ -326,3 +327,18 @@ MonoBehaviour:
   _animator: {fileID: 4587198871342388841}
   _navMeshAgent: {fileID: 3005804351024969615}
   _spriteRenderer: {fileID: 8850146991824220000}
+--- !u!114 &-320687370874646614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033768701053084738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9297e6abd468b1e40882279100c99f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0

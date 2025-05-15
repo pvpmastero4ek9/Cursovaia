@@ -15,7 +15,7 @@ namespace Core.Enemys
         [SerializeField] private Transform[] _spawnPoints;
         [SerializeField] private float _baseSpawnRate = 5f;
 
-        private int _playerLevel; // получай это значение от игрока
+        private int _playerLevel;
         private float _spawnTimer;
 
         private void Start()

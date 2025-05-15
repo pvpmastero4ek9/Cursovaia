@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Core.Entitys;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float _pushRange = 1f;
     [SerializeField] private float _startTimeBtwPush = 1f;
     [SerializeField] private NavMeshAgent _enemyAgent;
+    [SerializeField] private List<LayerMask> _maskEnemy; 
     private float _timeBtwPush;
     private Transform _target;
     private DefaultSpeed _defaultSpeed = new();
@@ -51,7 +53,7 @@ public class EnemyMovement : MonoBehaviour
         _enemyAgent.updateRotation = false;
 		_enemyAgent.updateUpAxis = false;
         _defaultSpeed.Speed = _enemyAgent.speed;
-        _target = FindNearestPlayer();
+        _target = FindNearestEntity();
     }
 
     private void Update()
@@ -67,14 +69,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void Move()
     {
-        if (_target != null)
-        {
-            _enemyAgent.SetDestination(_target.position);
-        }
-        else
-        {
-            _target = FindNearestPlayer();
-        }
+        _target = FindNearestEntity();
+        _enemyAgent.SetDestination(_target.position);
     }
 
     private void CheckOnPush()
@@ -85,23 +81,35 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private Transform FindNearestPlayer()
+    private Transform FindNearestEntity()
     {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        Transform nearestPlayer = null;
+        LayerMask combinedMask = 0;
+        foreach (LayerMask mask in _maskEnemy)
+        {
+            combinedMask |= mask;
+        }
+
+        // Ищем все коллайдеры на указанных слоях
+        Collider2D[] targets = Physics2D.OverlapCircleAll(
+            transform.position,
+            Mathf.Infinity,  // Можно ограничить радиус поиска
+            combinedMask
+        );
+
+        Transform nearestTarget = null;
         float closestDistance = Mathf.Infinity;
 
-        foreach (GameObject player in players)
+        foreach (Collider2D target in targets)
         {
-            float distance = Vector2.Distance(transform.position, player.transform.position);
+            float distance = Vector2.Distance(transform.position, target.transform.position);
             if (distance < closestDistance)
             {
                 closestDistance = distance;
-                nearestPlayer = player.transform;
+                nearestTarget = target.transform;
             }
         }
 
-        return nearestPlayer;
+        return nearestTarget;
     }
 
     private void PreparingForPush()
