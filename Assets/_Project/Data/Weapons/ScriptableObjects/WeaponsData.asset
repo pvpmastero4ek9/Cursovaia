@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 738a44113a147ff4a804d0664cfff4ca, type: 3}
+  m_Name: WeaponsData
+  m_EditorClassIdentifier: 
+  _weaponsList:
+  - WeaponName: WoodenSword
+    SpriteWeapon: {fileID: -7722621882136158617, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
+    Damage: 0
+  - WeaponName: StoneSword
+    SpriteWeapon: {fileID: -1206164095776426074, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
+    Damage: 0
+  - WeaponName: IronSword
+    SpriteWeapon: {fileID: 1940492987853213209, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
+    Damage: 0
+  - WeaponName: SteelSword
+    SpriteWeapon: {fileID: 5253684277674772705, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
+    Damage: 0
+  - WeaponName: MithrilSword
+    SpriteWeapon: {fileID: 5403852982634322994, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
+    Damage: 0
+  - WeaponName: ObsidianSword
+    SpriteWeapon: {fileID: 6640029628595908224, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
+    Damage: 0
+  - WeaponName: DragonSword
+    SpriteWeapon: {fileID: -6257587415097921885, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
+    Damage: 0
+  - WeaponName: EtherealSword
+    SpriteWeapon: {fileID: 5403852982634322994, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
+    Damage: 0

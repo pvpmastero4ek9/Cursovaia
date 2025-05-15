@@ -7,7 +7,7 @@ namespace MySQLM
     public class RegistrationPlayer : MonoBehaviour
     {
         [SerializeField] private NickNameScriptableObject _nickNameScriptableObject;
-        private MySQLConnector db;
+        private MySQLConnector db = new();
 
         public delegate void PlayerLoaderDelegate(string Nickname);
         public event PlayerLoaderDelegate PlayerLoader;
@@ -17,11 +17,6 @@ namespace MySQLM
         public event UnsuitablUserDelegate UnsuitablUser;
 
         bool IsNickNamePlayer = false;
-
-        void Start()
-        {
-            db = new MySQLConnector();
-        }
 
         public void LoadPlayer(string Nickname, string password)
         {

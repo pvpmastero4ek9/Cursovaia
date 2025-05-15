@@ -173,8 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventRechargeTimeMinutes: 0.1
-  _spawnAnimals: {fileID: 57754201}
   _timeEventInMinutes: 1
+  _spawnAnimals: {fileID: 57754201}
 --- !u!4 &57754203
 Transform:
   m_ObjectHideFlags: 0

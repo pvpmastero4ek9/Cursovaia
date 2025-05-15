@@ -1,0 +1,16 @@
+{
+    "name": "Data.Weapon",
+    "rootNamespace": "",
+    "references": [
+        "GUID:476a6888451ed4549b03c71075affd28"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
