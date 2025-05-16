@@ -5,13 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "WeaponsData", menuName = "Weapons/Data")]
 public class Weapons : ScriptableObject
 {
-    public List<Weapon> WeaponsList => _weaponsList.ToList();
+    public List<Weapon> WeaponsList => CheckWeaponList();
     [SerializeField] private List<Weapon> _weaponsList;
     private WeaponParser _weaponParser = new();
 
-    private void CheckWeaponList()
+    private List<Weapon> CheckWeaponList()
     {
-        foreach(Weapon weapon in _weaponsList)
+        foreach (Weapon weapon in _weaponsList)
         {
             if (weapon.Damage == 0)
             {
@@ -19,5 +19,7 @@ public class Weapons : ScriptableObject
                 break;
             }
         }
+
+        return _weaponsList.ToList();
     }
 }

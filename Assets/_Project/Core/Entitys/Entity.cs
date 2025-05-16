@@ -11,6 +11,8 @@ namespace Core.Entitys
 
         public delegate void ChangedHealthHandler();
         public event ChangedHealthHandler ChangedHealth;
+        public delegate void DiedEntityHandler();
+        public event DiedEntityHandler DiedEntity;
 
         public void UpdateData(float? maxHealth = null, float? currentHealth = null, float? damage = null)
         {
@@ -39,6 +41,7 @@ namespace Core.Entitys
         protected virtual void Die()
         {
             // Логика смерти
+            DiedEntity?.Invoke();
         }
     }
 }
