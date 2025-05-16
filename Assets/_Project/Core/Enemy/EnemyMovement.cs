@@ -89,10 +89,9 @@ public class EnemyMovement : MonoBehaviour
             combinedMask |= mask;
         }
 
-        // Ищем все коллайдеры на указанных слоях
         Collider2D[] targets = Physics2D.OverlapCircleAll(
             transform.position,
-            Mathf.Infinity,  // Можно ограничить радиус поиска
+            Mathf.Infinity,
             combinedMask
         );
 

@@ -22,4 +22,24 @@ public class Weapons : ScriptableObject
 
         return _weaponsList.ToList();
     }
+
+    public Weapon GetRandomWeapon()
+    {
+        List<Weapon> weaponsList = WeaponsList;
+        
+        int totalChance = weaponsList.Sum(w => w.ChanceFalling);
+        int randomValue = Random.Range(0, totalChance);
+
+        int currentSum = 0;
+        foreach (var weapon in weaponsList)
+        {
+            currentSum += weapon.ChanceFalling;
+            if (randomValue < currentSum)
+            {
+                return weapon;
+            }
+        }
+
+        return null;
+    }
 }

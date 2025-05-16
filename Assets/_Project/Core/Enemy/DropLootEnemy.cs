@@ -6,7 +6,7 @@ namespace Core.Enemys
 {
     public class DropLootEnemy : MonoBehaviour
     {
-        [SerializeField] private GameObject _weaponPrefab;
+        [SerializeField] private Weapon _weaponPrefab;
         [SerializeField] private Entity _enemy;
         [SerializeField] private Weapons _weapons;
         private RandomChanceDrop _randomChanceDrop = new();
@@ -31,9 +31,11 @@ namespace Core.Enemys
 
         private void DropLoot()
         {
-            
-            Instantiate(_weaponPrefab, _enemy.gameObject.transform.position, Quaternion.identity);
-            // _weapons.WeaponsList
+            Weapon weapon = Instantiate(_weaponPrefab, _enemy.gameObject.transform.position, Quaternion.identity);
+            Weapon randomWeapon = _weapons.GetRandomWeapon();
+            weapon = randomWeapon;
+
+            weapon.gameObject.GetComponent<SpriteRenderer>().sprite = randomWeapon.SpriteWeapon;
         }
     }
 }
