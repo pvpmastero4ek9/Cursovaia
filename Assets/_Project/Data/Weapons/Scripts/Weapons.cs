@@ -1,22 +1,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using AYellowpaper.SerializedCollections;
+using System;
+using ListExtentions;
 
 [CreateAssetMenu(fileName = "WeaponsData", menuName = "Weapons/Data")]
 public class Weapons : ScriptableObject
 {
-    public List<Weapon> WeaponsList => CheckWeaponList();
-    [SerializeField] private List<Weapon> _weaponsList;
+    [SerializedDictionary("WeaponName", "IconWeapon")]
+    [SerializeField] private SerializedDictionary<string, Sprite> _weaponsIconDictionary;
+    private List<Weapon> _weaponsList = new();
     private WeaponParser _weaponParser = new();
+    public List<Weapon> WeaponsList => CheckWeaponList();
+    private RandomChanceDrop _randomChanceDrop = new();
 
     private List<Weapon> CheckWeaponList()
     {
-        foreach (Weapon weapon in _weaponsList)
+        if (_weaponsList.Count == 0)
         {
-            if (weapon.Damage == 0)
+            _weaponParser.GetDataWeapon(_weaponsList);
+            foreach (Weapon weapon in _weaponsList)
             {
-                _weaponParser.FillDamageWeapon(_weaponsList);
-                break;
+                weapon.SpriteWeapon = _weaponsIconDictionary[weapon.WeaponName];
             }
         }
 
@@ -25,21 +31,17 @@ public class Weapons : ScriptableObject
 
     public Weapon GetRandomWeapon()
     {
-        List<Weapon> weaponsList = WeaponsList;
-        
-        int totalChance = weaponsList.Sum(w => w.ChanceFalling);
-        int randomValue = Random.Range(0, totalChance);
+        List<Weapon> weaponsReverce = WeaponsList;
+        weaponsReverce.Reverse();
 
-        int currentSum = 0;
-        foreach (var weapon in weaponsList)
+        foreach (Weapon weapon in weaponsReverce)
         {
-            currentSum += weapon.ChanceFalling;
-            if (randomValue < currentSum)
+            if (_randomChanceDrop.ChanceBoolean(weapon.ChanceFalling))
             {
                 return weapon;
             }
         }
 
-        return null;
+        return WeaponsList[0];
     }
 }

@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 2712479300007642775}
   - component: {fileID: 5008826463056320092}
   - component: {fileID: 6162057096287400697}
+  - component: {fileID: -4576172040410601005}
   - component: {fileID: 2380593631790481113}
   m_Layer: 3
   m_Name: Enemy
@@ -353,6 +354,21 @@ MonoBehaviour:
   _animator: {fileID: 4587198871342388841}
   _navMeshAgent: {fileID: 2380593631790481113}
   _spriteRenderer: {fileID: 8850146991824220000}
+--- !u!114 &-4576172040410601005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033768701053084738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73dbb75431c56034fb118ebd5cf5b998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponPrefab: {fileID: 7531350687580507682, guid: d0005ff95072e8446926f8e03a2296b0, type: 3}
+  _enemy: {fileID: 2493158839392802397}
+  _weapons: {fileID: 11400000, guid: 0b05d3d59cb48c54788186b3ec9f849b, type: 2}
 --- !u!195 &2380593631790481113
 NavMeshAgent:
   m_ObjectHideFlags: 0

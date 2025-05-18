@@ -33,7 +33,9 @@ namespace Core.Enemys
         {
             Weapon weapon = Instantiate(_weaponPrefab, _enemy.gameObject.transform.position, Quaternion.identity);
             Weapon randomWeapon = _weapons.GetRandomWeapon();
-            weapon = randomWeapon;
+            weapon.Damage = randomWeapon.Damage;
+            weapon.SpriteWeapon = randomWeapon.SpriteWeapon;
+            weapon.WeaponName = randomWeapon.WeaponName;
 
             weapon.gameObject.GetComponent<SpriteRenderer>().sprite = randomWeapon.SpriteWeapon;
         }

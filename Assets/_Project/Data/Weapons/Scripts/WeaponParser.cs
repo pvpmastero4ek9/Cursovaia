@@ -7,22 +7,23 @@ public class WeaponParser : MonoBehaviour
 {
     private const string WeaponNameRowSQL = "weapon_name";
     private const string WeaponDamageRowSQL = "damage";
+    private const string WeaponChanceFallingRowSQL = "drop_chance";
     private MySQLConnector db = new();
 
-    public void FillDamageWeapon(List<Weapon> weaponsList)
+    public void GetDataWeapon(List<Weapon> weaponsList)
     {
         db.ConnectToDatabase();
         DataTable weaponsDataTable = db.ExecuteQuery("SELECT * FROM weapons");
         foreach (DataRow row in weaponsDataTable.Rows)
         {
-            foreach(Weapon weapon in weaponsList)
+            Weapon weaponNew = new()
             {
-                if (row[$"{WeaponNameRowSQL}"].ToString() == weapon.WeaponName)
-                {
-                    weapon.Damage = (float)row[$"{WeaponDamageRowSQL}"];
-                    break;
-                }
-            }
+                WeaponName = row[$"{WeaponNameRowSQL}"].ToString(),
+                Damage = (int)row[$"{WeaponDamageRowSQL}"],
+                ChanceFalling = (int)row[$"{WeaponChanceFallingRowSQL}"],
+            };
+            weaponsList.Add(weaponNew);
         }
+        db.CloseConnection();
     }
 }

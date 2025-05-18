@@ -37,11 +37,12 @@ namespace Core.Entitys
 
             ChangedHealth?.Invoke();
         }
-        
-        protected virtual void Die()
+
+        public void Die()
         {
             // Логика смерти
             DiedEntity?.Invoke();
+            Destroy(gameObject);
         }
     }
 }

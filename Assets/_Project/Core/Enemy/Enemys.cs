@@ -7,11 +7,10 @@ using Core.Players;
 public class Enemys : Entity
 {
     [SerializeField] private int _giveExpirienceValue;
-    protected override void Die()
+    
+    private void OnEnable()
     {
-        GiveExpiriencePlayer();
-
-        Destroy(gameObject);
+        DiedEntity += GiveExpiriencePlayer;
     }
 
     private void GiveExpiriencePlayer()

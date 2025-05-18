@@ -11,10 +11,5 @@ namespace Core.AnimalsHaos
         {
             _animalStatsCalculation.ScaleEnemyStats(this);
         }
-
-        protected override void Die()
-        {
-            Destroy(gameObject);
-        }
     }
 }

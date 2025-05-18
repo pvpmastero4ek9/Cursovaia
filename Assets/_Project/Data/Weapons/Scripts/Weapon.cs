@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-[Serializable]
 public class Weapon : MonoBehaviour
 {
     public string WeaponName;

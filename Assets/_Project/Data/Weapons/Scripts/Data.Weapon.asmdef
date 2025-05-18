@@ -2,7 +2,9 @@
     "name": "Data.Weapon",
     "rootNamespace": "",
     "references": [
-        "GUID:476a6888451ed4549b03c71075affd28"
+        "GUID:476a6888451ed4549b03c71075affd28",
+        "GUID:d525ad6bd40672747bde77962f1c401e",
+        "GUID:c5127c6a3c2ec6c4b8ca9e86e0796dc0"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

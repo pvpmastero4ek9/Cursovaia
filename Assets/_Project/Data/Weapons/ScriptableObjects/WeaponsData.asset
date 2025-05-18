@@ -12,28 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 738a44113a147ff4a804d0664cfff4ca, type: 3}
   m_Name: WeaponsData
   m_EditorClassIdentifier: 
-  _weaponsList:
-  - WeaponName: WoodenSword
-    SpriteWeapon: {fileID: -7722621882136158617, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
-    Damage: 0
-  - WeaponName: StoneSword
-    SpriteWeapon: {fileID: -1206164095776426074, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
-    Damage: 0
-  - WeaponName: IronSword
-    SpriteWeapon: {fileID: 1940492987853213209, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
-    Damage: 0
-  - WeaponName: SteelSword
-    SpriteWeapon: {fileID: 5253684277674772705, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
-    Damage: 0
-  - WeaponName: MithrilSword
-    SpriteWeapon: {fileID: 5403852982634322994, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
-    Damage: 0
-  - WeaponName: ObsidianSword
-    SpriteWeapon: {fileID: 6640029628595908224, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
-    Damage: 0
-  - WeaponName: DragonSword
-    SpriteWeapon: {fileID: -6257587415097921885, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
-    Damage: 0
-  - WeaponName: EtherealSword
-    SpriteWeapon: {fileID: 5403852982634322994, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
-    Damage: 0
+  _weaponsIconDictionary:
+    _serializedList:
+    - Key: WoodenSword
+      Value: {fileID: -7722621882136158617, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
+    - Key: StoneSword
+      Value: {fileID: -1206164095776426074, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
+    - Key: SteelSword
+      Value: {fileID: 5403852982634322994, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
+    - Key: ObsidianSword
+      Value: {fileID: 6640029628595908224, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
+    - Key: MithrilSword
+      Value: {fileID: -6311466385154951822, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
+    - Key: IronSword
+      Value: {fileID: 5253684277674772705, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
+    - Key: EtherealSword
+      Value: {fileID: 1940492987853213209, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
+    - Key: DragonSword
+      Value: {fileID: -6257587415097921885, guid: dc83aa037bbcde548827dbac465879d4, type: 3}
+  _weaponsIconList: []

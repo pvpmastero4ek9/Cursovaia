@@ -14,10 +14,5 @@ namespace Core.Players
         {
             PlayerData = _parserSql.ParsingTable(_nickNameScriptableObject.NickNamePlayer);
         }
-
-        protected override void Die()
-        {
-            Destroy(gameObject);
-        }
     }
 }
