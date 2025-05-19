@@ -18,7 +18,6 @@ namespace Core.AnimalsHaos
 
         public IEnumerator StartAnimalSpawnRoutine(float timeEventInMinutes)
         {
-            Debug.Log(_timeSpawn);
             while (_timeSpawn < timeEventInMinutes * 60)
             {
                 _timeSpawn += Time.deltaTime;

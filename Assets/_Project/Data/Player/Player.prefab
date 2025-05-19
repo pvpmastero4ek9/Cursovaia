@@ -391,4 +391,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02e031357b2ae8042a49873e1913969a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timeSelection: 3
   _entity: {fileID: 5741187194530724855}
