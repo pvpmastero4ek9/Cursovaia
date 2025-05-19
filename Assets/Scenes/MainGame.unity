@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52427332b0f0ebe4f8d3646421fa96f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventRechargeTimeMinutes: 0.1
+  _eventRechargeTimeMinutes: 5
   _timeEventInMinutes: 1
   _spawnAnimals: {fileID: 57754201}
 --- !u!4 &57754203
