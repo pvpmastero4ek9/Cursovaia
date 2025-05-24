@@ -1,0 +1,18 @@
+{
+    "name": "Core.Events",
+    "rootNamespace": "Core.Events",
+    "references": [
+        "GUID:d5b2458c13da4554197c04fce8bbe020",
+        "GUID:476a6888451ed4549b03c71075affd28",
+        "GUID:c5127c6a3c2ec6c4b8ca9e86e0796dc0"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

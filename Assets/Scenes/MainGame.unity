@@ -128,8 +128,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 57754203}
-  - component: {fileID: 57754202}
   - component: {fileID: 57754201}
+  - component: {fileID: 57754204}
   m_Layer: 0
   m_Name: AnimalsHaos
   m_TagString: Untagged
@@ -160,21 +160,6 @@ MonoBehaviour:
   - {fileID: 1033768701053084738, guid: fbe2fb7699a401644bc7b4f12c70a336, type: 3}
   - {fileID: 1033768701053084738, guid: aee655f65566b5345955427d9bfa0272, type: 3}
   _timeBtwSpawnInSeconds: 1
---- !u!114 &57754202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57754200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52427332b0f0ebe4f8d3646421fa96f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _eventRechargeTimeMinutes: 5
-  _timeEventInMinutes: 1
-  _spawnAnimals: {fileID: 57754201}
 --- !u!4 &57754203
 Transform:
   m_ObjectHideFlags: 0
@@ -190,6 +175,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &57754204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57754200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b7b50ba144f1054598e58b50d5f3c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventRechargeTimeMinutes: 0.1
+  _timeEventInMinutes: 1
+  _spawnAnimals: {fileID: 57754201}
 --- !u!1 &75258310
 GameObject:
   m_ObjectHideFlags: 0
